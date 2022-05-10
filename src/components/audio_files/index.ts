@@ -19,5 +19,5 @@ const Audios = [
   { audio: new Audio(lead), name: "lead" },
   { audio: new Audio(uuhovoc), name: "uuho" },
   { audio: new Audio(tambourine), name: "tambo" },
-] as Track[];
+] as AudioObj[];
 export default Audios;

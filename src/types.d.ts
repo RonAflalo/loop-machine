@@ -1,1 +1,1 @@
-type Track = { audio: HTMLAudioElement; name: string };
+type AudioObj = { audio: HTMLAudioElement; name: string };

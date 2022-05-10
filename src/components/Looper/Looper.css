@@ -1,81 +1,76 @@
-.player__title {
+.looper__title {
   font-family: 'Vonique64', sans-serif;
-    font-size: 53px;
-    font-weight: noraml;
-    line-height: 49px;
-    letter-spacing: 3px;
-    text-align: center;
-    margin-bottom: 20px;
+  font-size: 53px;
+  font-weight: noraml;
+  line-height: 49px;
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.looper__container {
+  left: 50%;
+}
+
+.looper_thumb {
+  opacity: 1;
+  position: absolute;
+  top: 0;
+  left: 120px;
+  -webkit-appearance: none;
+  width: 85%;
+  height: 480px;
+  background: transparent;
+}
+
+.looper_thumb_inactive {
+  opacity: 0.5;
+  transition: 0.2s ease;
+}
+
+.looper_thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.looper_thumb:focus {
+  outline: none;
+}
+
+.looper_thumb::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.looper_thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 478px;
+  width: 1px;
+  background: red;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.looper_thumb::-moz-range-thumb {
+  box-shadow: 0px 0px 0px red, 0px 0px 0px red;
+  border: 1px solid red;
+  height: 476px;
+  width: 1px;
+  background: red;
+  color: red;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .looper_thumb {
+    width: 80%;
   }
-  
-  .player__container {
-    position: flex;
-    overflow: hidden;
-    max-width: 1300px;
-    min-width: 1200px;
-    margin-left: 160px;
+}
+
+@media screen and (max-width: 425px) {
+  .looper_thumb {
+    width: 65%;
   }
-  
-  .player__range {
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    left: 120px;
-    -webkit-appearance: none;
-    width: 85%;
-    height: 480px;
-    background: transparent;
-  }
-  
-  .player__range_inactive {
-    opacity: 0.5;
-    transition: 0.2s ease;
-  }
-  
-  .player__range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-  }
-  
-  .player__range:focus {
-    outline: none;
-  }
-  
-  .player__range::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-  
-  .player__range::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 478px;
-    width: 1px;
-    background: red;
-    cursor: pointer;
-    margin-top: 0;
-  }
-  
-  .player__range::-moz-range-thumb {
-    box-shadow: 0px 0px 0px red, 0px 0px 0px red;
-    border: 1px solid red;
-    height: 476px;
-    width: 1px;
-    background: red;
-    color: red;
-    cursor: pointer;
-  }
-  
-  @media screen and (max-width: 768px) {
-    .player__range {
-      width: 80%;
-    }
-  }
-  
-  @media screen and (max-width: 425px) {
-    .player__range {
-      width: 65%;
-    }
-  }
-  
+}

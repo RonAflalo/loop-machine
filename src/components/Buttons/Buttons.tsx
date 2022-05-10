@@ -22,37 +22,33 @@ type ButtonsProps = {
   isLooping: boolean;
 };
 
-const Buttons = ({
+const Buttons: React.FC<ButtonsProps> = ({
   playPause,
   isPlaying,
   stopPlay,
   toggleLoop,
   currentTime,
   isLooping,
-}: ButtonsProps) => {
+}) => {
   return (
-    <div className="controls">
-      <div className="controls__button-container">
+    <div className="buttons">
+      <div className="buttons__button-container">
         <button
-          className={
-            isPlaying ? "controls__button playing" : "controls__button"
-          }
+          className={isPlaying ? "buttons__button playing" : "buttons__button"}
           onClick={playPause}>
           {isPlaying ? <PauseIcon /> : <PlayArrowIcon />}
         </button>
-        <button className="controls__button" onClick={stopPlay}>
+        <button className="buttons__button" onClick={stopPlay}>
           <StopIcon />
         </button>
         <button
-          className={
-            !isLooping ? "controls__button" : "controls__button active"
-          }
+          className={!isLooping ? "buttons__button" : "buttons__button active"}
           onClick={toggleLoop}>
           <LoopIcon />
         </button>
       </div>
-      <div className="controls__time-container">
-        <div className="controls__time">{calculateTime(currentTime)}</div>
+      <div className="buttons__time-container">
+        <div className="buttons__time">{calculateTime(currentTime)}</div>
         {/* used the lower div to debugg time left */}
         {/* <div>{(!isNaN(duration) && calculateTime(duration)) || '00:00'}</div> */}
       </div>

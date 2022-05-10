@@ -1,24 +1,38 @@
 import React from "react";
 import Channel from "../Channel/Channel";
 import "./ChannelList.css";
+import { Rainbow } from "./rainbow";
 
 type ChannelListProps = {
-  tracks: Track[];
+  audios: AudioObj[];
   onMute: (audio: HTMLAudioElement) => void;
+  children: JSX.Element;
 };
 
-function ChannelList({ tracks, onMute }: ChannelListProps) {
+const ChannelList: React.FC<ChannelListProps> = ({
+  audios,
+  onMute,
+  children,
+}) => {
+  const rainbow = new Rainbow();
+  rainbow.setNumberRange(0, audios.length);
+  rainbow.setSpectrum("blue", "pink", "red");
+
   return (
-    <div className="tracks__container">
+    <div className="channels__container">
+      {children}
       <ul>
-        {tracks.map((trackObj, index) => (
-          <li className="track__item" key={index}>
-            <Channel onMute={onMute} track={trackObj} />
+        {audios.map((audioObj, index) => (
+          <li
+            className="channel__item"
+            style={{ backgroundColor: "#" + rainbow.colourAt(index) }}
+            key={index}>
+            <Channel onMute={onMute} audioObj={audioObj} />
           </li>
         ))}
       </ul>
     </div>
   );
-}
+};
 
 export default ChannelList;

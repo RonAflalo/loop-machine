@@ -1,23 +1,26 @@
-import { ButtonPropsVariantOverrides } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import "./ProgressBar.css";
 type ProgressBarProps = {
+  max: number;
   moveCursor: () => void;
-  currentTime: number;
+  progressBarRef: React.RefObject<HTMLInputElement>;
 };
 
-const ProgressBar = ({ moveCursor, currentTime }: ProgressBarProps) => {
+const ProgressBar: React.FC<ProgressBarProps> = ({
+  max,
+  moveCursor,
+  progressBarRef,
+}) => {
   return (
     <input
-      className="player__range"
-      value={currentTime}
+      className="looper_thumb"
       onChange={moveCursor}
       type="range"
       min="0"
-      max="17"
+      max={max}
       defaultValue="0"
+      ref={progressBarRef}
     />
   );
 };
-
 export default ProgressBar;

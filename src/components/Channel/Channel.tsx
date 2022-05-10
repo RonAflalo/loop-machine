@@ -7,22 +7,22 @@ import "./Channel.css";
 
 type ChannelProps = {
   onMute: (audio: HTMLAudioElement) => void;
-  track: Track;
+  audioObj: AudioObj;
 };
 
-function Channel({ onMute, track }: ChannelProps) {
+const Channel: React.FC<ChannelProps> = ({ onMute, audioObj }) => {
   const [mute, setMute] = useState(false);
 
   const toggleMute = () => {
     setMute(() => !mute);
-    onMute(track.audio);
+    onMute(audioObj.audio);
   };
 
   return (
-    <div className="track__container">
-      <div className="track__details">
+    <div className="channel_container">
+      <div className="channel_details">
         <ToggleButton
-          className="track_icon"
+          className="channel_icon"
           value="check"
           selected={mute}
           onChange={toggleMute}>
@@ -36,12 +36,12 @@ function Channel({ onMute, track }: ChannelProps) {
             </Icon>
           )}
         </ToggleButton>
-        <p className="track__name">{track.name}</p>
+        <p className="channel_name">{audioObj.name}</p>
       </div>
       {/*@ts-ignore*/}
-      <audio src={track.audio} preload="metadata" loop></audio>
+      <audio src={audioObj.audio} preload="metadata" loop></audio>
     </div>
   );
-}
+};
 
 export default Channel;
