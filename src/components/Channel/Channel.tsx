@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import VolumeOffIcon from "@mui/icons-material/VolumeOff";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeOffIcon from "@mui/icons-material/VolumeOffRounded";
+import VolumeUpIcon from "@mui/icons-material/VolumeUpRounded";
+import Icon from "@material-ui/core/Icon";
 import { ToggleButton } from "@mui/material";
 import "./Channel.css";
 
@@ -20,11 +21,19 @@ function Channel({ onMute, track }: ChannelProps) {
   return (
     <div className="track__container">
       <div className="track__details">
-        <ToggleButton value="check" selected={mute} onChange={toggleMute}>
+        <ToggleButton
+          className="track_icon"
+          value="check"
+          selected={mute}
+          onChange={toggleMute}>
           {mute ? (
-            <VolumeOffIcon fontSize="small" />
+            <Icon color="primary">
+              <VolumeOffIcon fontSize="medium" />
+            </Icon>
           ) : (
-            <VolumeUpIcon fontSize="small" />
+            <Icon color="primary">
+              <VolumeUpIcon fontSize="medium" />
+            </Icon>
           )}
         </ToggleButton>
         <p className="track__name">{track.name}</p>

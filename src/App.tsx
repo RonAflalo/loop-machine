@@ -5,7 +5,9 @@ import React from "react";
 function App() {
   return (
     <div className="app">
-      <Looper></Looper>
+      <main className="main">
+        <Looper></Looper>
+      </main>
     </div>
   );
 }

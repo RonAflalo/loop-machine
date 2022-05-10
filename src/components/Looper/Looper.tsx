@@ -3,9 +3,11 @@ import Audios from "../audio_files";
 import ChannelList from "../ChannelLIst/ChannelList";
 import Buttons from "../Buttons/Buttons";
 import "./Looper.css";
+import ProgressBar from "../ProgressBar/ProgressBar";
 
 const Looper = () => {
-  const [currTime, setCurrTime] = useState(0);
+  const [timeSong, setTimeSong] = useState(0);
+  const [currentTime, setCurrTime] = useState(0);
   const [isPlay, setPlay] = useState(false);
   const [isLooping, setIsLooping] = useState(false);
 
@@ -51,29 +53,26 @@ const Looper = () => {
   //   });
   //   setCurrTime(progressBar.current.value);
   // };
-
+  const moveCursor = () => {
+    Audios.forEach(({ audio }) => {
+      audio.currentTime = currentTime;
+    });
+    setCurrTime(currentTime);
+  };
   return (
     <>
-      <h1 className="player__title">MOVEO LOOP MACHINE</h1>
       <div className="player__container">
-        {/* <input
-          className={
-            isPlay ? "player__range" : "player__range player__range_inactive"
-          }
-          onChange={changeRange}
-          type="range"
-          min="0"
-          max="17"
-          defaultValue="0"
-          ref={progressBar}
-        /> */}
+        <h1 className="player__title">LOOPER</h1>
+        <ProgressBar
+          moveCursor={moveCursor}
+          currentTime={currentTime}></ProgressBar>
         <ChannelList tracks={Audios} onMute={toggleMute} />
         <Buttons
           playPause={togglePlay}
           isPlaying={isPlay}
           stopPlay={stopPlay}
           toggleLoop={toggleLooping}
-          currentTime={currTime}
+          currentTime={currentTime}
           isLooping={isLooping}
         />
       </div>

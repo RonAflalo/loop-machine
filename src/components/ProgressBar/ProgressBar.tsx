@@ -1,23 +1,12 @@
+import { ButtonPropsVariantOverrides } from "@mui/material";
 import React, { useState } from "react";
-import "./ProgressBar.module.css";
+import "./ProgressBar.css";
 type ProgressBarProps = {
-  Audios: Track[];
-  setCurrTime: (time: number) => void;
+  moveCursor: () => void;
   currentTime: number;
 };
 
-const ProgressBar = ({
-  Audios,
-  setCurrTime,
-  currentTime,
-}: ProgressBarProps) => {
-  const moveCursor = () => {
-    Audios.forEach(({ audio }) => {
-      audio.currentTime = currentTime;
-    });
-    setCurrTime(currentTime);
-  };
-
+const ProgressBar = ({ moveCursor, currentTime }: ProgressBarProps) => {
   return (
     <input
       className="player__range"
@@ -30,3 +19,5 @@ const ProgressBar = ({
     />
   );
 };
+
+export default ProgressBar;

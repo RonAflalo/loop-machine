@@ -10,14 +10,14 @@ import uuhovoc from "./UUHO VOC.mp3";
 import tambourine from "./_tambourine_shake_higher.mp3";
 
 const Audios = [
-  { audio: new Audio(alltrack), name: "alltrack" },
+  { audio: new Audio(alltrack), name: "play-all" },
   { audio: new Audio(bvoc), name: "bvocal" },
   { audio: new Audio(drums), name: "drums" },
   { audio: new Audio(hehe), name: "hehe" },
-  { audio: new Audio(highvoc), name: "highvocal" },
+  { audio: new Audio(highvoc), name: "high" },
   { audio: new Audio(jibrish), name: "jibrish" },
   { audio: new Audio(lead), name: "lead" },
   { audio: new Audio(uuhovoc), name: "uuho" },
-  { audio: new Audio(tambourine), name: "tambourine" },
+  { audio: new Audio(tambourine), name: "tambo" },
 ] as Track[];
 export default Audios;
