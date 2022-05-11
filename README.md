@@ -9,5 +9,8 @@ a white progressBar (width 1px) representing current time of the audios which ca
 different locations of the audio file.
 the bottom section contain buttons for play, pause, stop and loop. and right next to it the current time of the audio.
 
-### URL link of project deployment
+### URL link of project deployment (using vercel)
 https://loop-machine-liart.vercel.app/
+
+### Libraries:
+React, Typescript, material UI.
